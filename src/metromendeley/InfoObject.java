@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
  *
  * @author victorpointud
  */
+
 public class InfoObject {
     
     private String title;
@@ -86,15 +87,15 @@ public class InfoObject {
         
         Functions v = new Functions();
         String p = "";
-        p += "\n Titulo:\n" + "    " + getTitle() + "\n\n" + "Autores:" + "\n";
+        p += "Titulo: " + getTitle() + "\n" + "Autores:" + "\n";
         for (int i = 0; i < getAuthors().length; i++) {
             
-            p += "    " + getAuthors()[i] + "\n";
+            p += getAuthors()[i] + "\n";
         }
-        p += "\n Palabras claves: \n";
+        p += "Palabras claves: \n";
         for (int i = 0; i < getKeywords().length; i++) {
             
-            p += "    " +  getKeywords()[i] + ": " + v.countWords(getSummary(), getKeywords()[i]) + "\n";
+            p += getKeywords()[i] + ": " + v.countWords(getSummary(), getKeywords()[i]) + "\n";
         }
         return p;
     }
