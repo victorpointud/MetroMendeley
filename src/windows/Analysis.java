@@ -1,13 +1,15 @@
 
 package windows;
 
-import java.util.Collections;
+import java.awt.Image;
+import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import metromendeley.GlobalVariables;
 import metromendeley.List;
 import metromendeley.Node;
 import metromendeley.Functions;
-import metromendeley.InfoObject;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,8 +18,13 @@ import metromendeley.InfoObject;
 
 public final class Analysis extends javax.swing.JFrame {
 
+    private ImageIcon image;
+    private Icon icon;
+    
     public Analysis() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        this.printImage(this.jLabel1, "src/pictures/Analysis.jpg");
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         AllTitles();
@@ -61,7 +68,7 @@ public final class Analysis extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setText("Analizar Resumen");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
         Titles.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         Titles.addActionListener(new java.awt.event.ActionListener() {
@@ -69,13 +76,13 @@ public final class Analysis extends javax.swing.JFrame {
                 TitlesActionPerformed(evt);
             }
         });
-        jPanel1.add(Titles, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 320, 40));
+        jPanel1.add(Titles, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 320, 40));
 
         Info.setColumns(20);
         Info.setRows(5);
         jScrollPane1.setViewportView(Info);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 450, 220));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 450, 220));
 
         Menu.setBackground(new java.awt.Color(255, 255, 153));
         Menu.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -85,21 +92,21 @@ public final class Analysis extends javax.swing.JFrame {
                 MenuActionPerformed(evt);
             }
         });
-        jPanel1.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 100, 40));
+        jPanel1.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 100, 40));
 
         Add.setBackground(new java.awt.Color(204, 255, 204));
-        Add.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        Add.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         Add.setText("Agregar");
         Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddActionPerformed(evt);
             }
         });
-        jPanel1.add(Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 110, 50));
+        jPanel1.add(Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 110, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Analysis.jpg")));
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, -130, 670, 590));
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 400));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 400));
 
@@ -162,6 +169,19 @@ public final class Analysis extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void printImage(JLabel label, String rute){
+        this.image = new ImageIcon(rute);
+        this.icon = new ImageIcon(
+       this.image.getImage().getScaledInstance(
+               label.getWidth(),
+              label.getHeight(),
+               Image.SCALE_DEFAULT
+            )
+        );
+        jLabel1.setIcon(this.icon);
+        this.repaint();
+    }   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add;

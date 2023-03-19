@@ -1,6 +1,10 @@
 
 package windows;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import metromendeley.Functions;
 import metromendeley.GlobalVariables;
@@ -12,9 +16,14 @@ import metromendeley.InfoObject;
  */
 
 public class Start extends javax.swing.JFrame {
-
+    
+    private ImageIcon image;
+    private Icon icon;
+    
     public Start() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        this.printImage(this.jLabel1, "src/pictures/Start.jpg");
         this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
@@ -43,14 +52,14 @@ public class Start extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel2.setText("MetroMendeley");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
         jLabel4.setText("Creado por Victor Pointud.");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 170, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 170, 30));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setText("Administración De Artículos Científicos.");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, 20));
 
         Start.setBackground(new java.awt.Color(255, 204, 255));
         Start.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -60,7 +69,7 @@ public class Start extends javax.swing.JFrame {
                 StartActionPerformed(evt);
             }
         });
-        jPanel1.add(Start, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 160, 80));
+        jPanel1.add(Start, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 160, 80));
 
         EndAll.setBackground(new java.awt.Color(153, 153, 255));
         EndAll.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -70,10 +79,9 @@ public class Start extends javax.swing.JFrame {
                 EndAllActionPerformed(evt);
             }
         });
-        jPanel1.add(EndAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 100, 50));
+        jPanel1.add(EndAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 160, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Start.jpg")));
-        jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
@@ -137,6 +145,19 @@ public class Start extends javax.swing.JFrame {
                 new Start().setVisible(true);
             }
         });
+    }
+    
+    private void printImage(JLabel label, String rute){
+        this.image = new ImageIcon(rute);
+        this.icon = new ImageIcon(
+       this.image.getImage().getScaledInstance(
+               label.getWidth(),
+              label.getHeight(),
+               Image.SCALE_DEFAULT
+            )
+        );
+        jLabel1.setIcon(this.icon);
+        this.repaint();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

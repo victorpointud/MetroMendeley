@@ -13,9 +13,9 @@ import metromendeley.InfoObject;
  * @author victorpointud
  */
 
-public final class Author extends javax.swing.JFrame {
-    
-    public Author() {
+public final class KeyWord extends javax.swing.JFrame {
+
+    public KeyWord() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -28,9 +28,9 @@ public final class Author extends javax.swing.JFrame {
         int index = 0;
         while (pointer != null) {
             InfoObject summary = pointer.getElement();
-            String[] authors = summary.getAuthors();
-            for (int i = 0; i < authors.length; i++) {        
-                Authors.insertItemAt(authors[i], index);
+            String[] keywords = summary.getKeywords();
+            for (int i = 0; i < keywords.length; i++) {        
+                KeyWords.insertItemAt(keywords[i], index);
                 index++;
             }
             pointer = pointer.getNext();
@@ -43,9 +43,9 @@ public final class Author extends javax.swing.JFrame {
             int index = 0;
             while (pointer != null) {
                 InfoObject summary = pointer.getElement();
-                String[] authors = summary.getAuthors();
-                for (int i = 0; i < authors.length; i++) {        
-                    if (authors[i].equals(String.valueOf(Authors.getSelectedItem()))) {
+                String[] keywords = summary.getKeywords();
+                for (int i = 0; i < keywords.length; i++) {        
+                    if (keywords[i].equals(String.valueOf(KeyWords.getSelectedItem()))) {
                         Searchs.insertItemAt(summary.getTitle(), index);
                         index++;
                     }      
@@ -67,7 +67,7 @@ public final class Author extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         Menu = new javax.swing.JButton();
         Searchs = new javax.swing.JComboBox<>();
-        Authors = new javax.swing.JComboBox<>();
+        KeyWords = new javax.swing.JComboBox<>();
         Titles = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Info = new javax.swing.JTextArea();
@@ -82,8 +82,8 @@ public final class Author extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setText("Busqueda por Autor ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+        jLabel1.setText("Busqueda por Palabra Clave");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         Menu.setBackground(new java.awt.Color(153, 255, 153));
         Menu.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -100,9 +100,9 @@ public final class Author extends javax.swing.JFrame {
                 SearchsActionPerformed(evt);
             }
         });
-        jPanel1.add(Searchs, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 280, 30));
+        jPanel1.add(Searchs, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 270, 30));
 
-        jPanel1.add(Authors, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 270, 30));
+        jPanel1.add(KeyWords, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 280, 30));
 
         Titles.setBackground(new java.awt.Color(204, 204, 255));
         Titles.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -112,7 +112,7 @@ public final class Author extends javax.swing.JFrame {
                 TitlesActionPerformed(evt);
             }
         });
-        jPanel1.add(Titles, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 260, 30));
+        jPanel1.add(Titles, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 270, 30));
 
         Info.setColumns(20);
         Info.setRows(5);
@@ -120,25 +120,25 @@ public final class Author extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 470, 220));
 
-        jlabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jlabel5.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jlabel5.setText("Investigaciones");
         jPanel1.add(jlabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel4.setText("Autores");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 50, -1));
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel4.setText("Palabras Claves");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 110, -1));
 
         SearchSearchs.setBackground(new java.awt.Color(204, 255, 204));
         SearchSearchs.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        SearchSearchs.setText("Buscar Investigaciones de Autor");
+        SearchSearchs.setText("Buscar Investigaciones por Palabra Clave");
         SearchSearchs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchSearchsActionPerformed(evt);
             }
         });
-        jPanel1.add(SearchSearchs, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 250, 30));
+        jPanel1.add(SearchSearchs, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 280, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Author.jpg")));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/KeyWord.jpg")));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
@@ -172,8 +172,8 @@ public final class Author extends javax.swing.JFrame {
             for(int i = 0; i < itemCount; i++){
             Searchs.removeItemAt(0);
             }
-        if (Authors.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(null, "No se ha agregado ningún autor.");
+        if (KeyWords.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "No se ha agregado ninguna palabra clave.");
         }
         else{
             AllSummaries();
@@ -197,14 +197,18 @@ public final class Author extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Author.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KeyWord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Author.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KeyWord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Author.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KeyWord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Author.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KeyWord.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -213,14 +217,14 @@ public final class Author extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Author().setVisible(true);
+                new KeyWord().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> Authors;
     private javax.swing.JTextArea Info;
+    private javax.swing.JComboBox<String> KeyWords;
     private javax.swing.JButton Menu;
     private javax.swing.JButton SearchSearchs;
     private javax.swing.JComboBox<String> Searchs;
